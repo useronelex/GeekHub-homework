@@ -2,8 +2,8 @@
 
 dict = {'foo': 'bar', 
         'bar': 'buz',
-        'foo': 'bar', 
-        'bar': 'buz',
+        'fon': 'bar', 
+        'bay': 'buz',
         'ttt': '145'
         }
 new_dict = {}
