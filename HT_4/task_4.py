@@ -10,7 +10,7 @@ def get_string(string):
     num_string = ''.join((i for i in string if i.isdigit()))
     if len(string) == 0:
         print ('Порожній рядок') 
-    elif len(string) >= 30 and len(string) <= 50:
+    elif 30 <= len(string) <= 50:
         print (f'Довжина рядка: {len(string)} символи.\nРядок містить {len(alpha_string)} літер та {len(num_string)} цифр')
     elif len(string) < 30:
         sum_num_string = sum(int(n) for n in num_string)
@@ -26,8 +26,11 @@ def get_string(string):
      
 # long, middle, short, empty  -  strings for tests        
 long = '98neroi4nr0c3n30irn03ien3c0rfe kdno400we(nw,kowe%00koi!jn35pijnp4 6ij7k5j78p3kj546p4 65jnpoj35po6j345'
-middle = '98neroi4nr0c3n39irn03ien3crfe'
+middle = '98neroi4nr0c3n39irn03ien3crghghfe'
 short = '6ij7  k5j78'
 empty = ''
 
-get_string(long)
+try:
+    get_string(middle)
+except (TypeError, SyntaxError, NameError) as err: 
+    print(f'Виникла помилка! {err}')
