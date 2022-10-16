@@ -16,4 +16,10 @@ def equales_numbs(x, y):
         return f'{y} більше нiж {x} на {z}' 
 
 
-print(equales_numbs(10, 8))
+try:
+    x = int(input('Enter x: '))
+    y = int(input('Enter y: '))
+    
+    print(equales_numbs(x, y))
+except ValueError:
+    print('A decimal integer was expected')
