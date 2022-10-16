@@ -7,9 +7,9 @@ def season(month):
         else:
             if month <= 2 or month == 12:
                 print ('winter')
-            elif month > 2 and month <= 5:
+            elif 2 < month <= 5:
                 print ('spring')
-            elif month > 5 and month <= 8:
+            elif 5 < month <= 8:
                 print ('summer')
             else:
                 print('autumn')
@@ -17,4 +17,4 @@ def season(month):
         print ('Wrong data type entered.\nPleace, enter number from 0 to 12.')                 
          
                 
-season(12)   
+season(12)    
