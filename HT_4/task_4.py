@@ -9,7 +9,7 @@ def get_string(string):
     alpha_string = ''.join((i for i in string if i.isalpha()))
     num_string = ''.join((i for i in string if i.isdigit()))
     if len(string) == 0:
-        print ('Порожній рядок') 
+        print('Порожній рядок') 
     elif 30 <= len(string) <= 50:
         print (f'Довжина рядка: {len(string)} символи.\nРядок містить {len(alpha_string)} літер та {len(num_string)} цифр')
     elif len(string) < 30:
@@ -32,5 +32,5 @@ empty = ''
 
 try:
     get_string(middle)
-except (TypeError, SyntaxError, NameError) as err: 
+except(TypeError, SyntaxError, NameError) as err: 
     print(f'Виникла помилка! {err}')
