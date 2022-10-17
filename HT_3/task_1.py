@@ -2,7 +2,6 @@
 
 value = input('Enter some values: ')
 tuple_list = [(1, 2, 3), (), (4, 5, 6, 6.5, 6.75), (7, 8, 9,10), ()]
-
 new_tuple_list = []
 
 for element_list in tuple_list:
