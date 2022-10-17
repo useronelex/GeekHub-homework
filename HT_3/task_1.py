@@ -6,8 +6,8 @@ new_tuple_list = []
 
 for element_list in tuple_list:
     if element_list:
-        new_tuple_list += [element_list[:-1] + (value,)]  
+        new_tuple_list.append([element_list[:-1] + (value,)])
     else: 
-        new_tuple_list += (element_list, )
+        new_tuple_list.append((element_list, ))
 
 print(new_tuple_list)
