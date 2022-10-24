@@ -6,16 +6,44 @@
    Якщо якийсь із параметрів не відповідає вимогам - породити виключення із відповідним текстом.
 '''
 
-class InvalidException(Exception):
-    ...
+class LenNameExeption(Exception):
+    pass
+
+class LenPasswordException(Exception):
+    pass
+
+class IsAlphaPasswordException(Exception):
+    pass
+
+class TitleNameException(Exception):
+    pass
 
 
 def valid_data(name, password):
+    try:
+        if len(name) > 50  or len(name) < 3:
+            raise LenNameExeption('Out of range lenght name')
+        elif len(password) < 8:
+            raise LenPasswordException('short password')
+        elif password.isalpha():
+            raise IsAlphaPasswordException('password dos\'t have latter')
+        elif not name.istitle():
+            raise TitleNameException('name must be Upper')
+        else:
+            return 'Ok!'
+    except LenNameExeption:
+        return 'Out of range lenght name'
+    except LenPasswordException:
+        return 'short password'
+    except IsAlphaPasswordException:
+        return 'password dos\'t have latter'
+    except TitleNameException:
+        return 'name must be Upper'
+    except Exception:
+        return 'Unspecifie'
 
-    if 3 < len(name) < 50 and len(password) >= 8 and not password.isdigit() and name.istitle():
-        print('Your data is correctly!')
-    else:
-        raise InvalidException('Incorrectly entered name or password. The entered data does not meet the requirements')
-
-
-valid_data('Jerry', '1h345678')
+      
+try:
+    print(valid_data('Jerry', '1hnb5678'))
+except(ValueError, NameError, TypeError) as err:
+    print(f'You have error: {err}')
