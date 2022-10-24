@@ -17,7 +17,7 @@ def check_function(username, password, silent= False):
     if (username, password) in l:
         return True
     else:
-        if silent == True:
+        if silent:
             return False
         else:
             raise LoginException('masssage error')
