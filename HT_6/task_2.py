@@ -15,7 +15,7 @@ def valid_data(name, password):
     if 3 < len(name) < 50 and len(password) >= 8 and not password.isdigit() and name.istitle():
         print('Your data is correctly!')
     else:
-        raise InvalidException('Some Error')
+        raise InvalidException('Incorrectly entered name or password. The entered data does not meet the requirements')
 
 
 valid_data('Jerry', '1h345678')
