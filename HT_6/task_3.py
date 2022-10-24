@@ -55,4 +55,7 @@ def check_status(l):
 
 
 l = [('Bill', '1234567k'), ('Tomy', 'qnbw213'), ('Li', 'dsffhbb32'), ('volly', 'nmjhg32234n'), ]
-check_status(l)
+try:
+    check_status(l)
+except (NameError, ValueError, TypeError) as err:
+    print('You have a problem: {err}')
