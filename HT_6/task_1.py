@@ -15,12 +15,12 @@ def check_function(username, password, silent= False):
     l = [('Tom', 123), ('Bary', 32344), ('Clay', 5432), ('Calvin', 65432), ('John', 3241)]
 
     if (username, password) in l:
-        print(True)
+        return True
     else:
         if silent == True:
-            print(False)
+            return False
         else:
             raise LoginException('masssage error')
           
 
-check_function('Tom', 1233, True)
+print(check_function('Tom', 1233, True))
