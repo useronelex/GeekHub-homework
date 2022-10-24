@@ -31,16 +31,16 @@ def valid_data(name, password):
             raise TitleNameException('name must be Upper')
         else:
             return 'Ok!'
-    except LenNameExeption:
-        return 'Out of range lenght name'
-    except LenPasswordException:
-        return 'short password'
-    except IsAlphaPasswordException:
-        return 'password dos\'t have latter'
-    except TitleNameException:
-        return 'name must be Upper'
-    except Exception:
-        return 'Unspecifie'
+    except LenNameExeption as error:
+        return error
+    except LenPasswordException as error:
+        return error
+    except IsAlphaPasswordException as error:
+        return error
+    except TitleNameException as error:
+        return error
+    except Exception as error:
+        return error
 
       
 try:
