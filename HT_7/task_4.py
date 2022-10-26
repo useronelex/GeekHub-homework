@@ -19,6 +19,9 @@ def my_generator(iterate):
             yield i
 
 
-for elem in my_generator([1, 2, 3]):
-    print(elem)
+try: 
+    for elem in my_generator([1, 2, 3]):
+        print(elem)
+except (ValueError, AttributeError, TypeError, NameError) as err:
+    print(f'Error: {err}')
 
