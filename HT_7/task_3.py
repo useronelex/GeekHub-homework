@@ -21,7 +21,7 @@ def my_range(start, stop, step= 1):
         elif abs(start) < stop and step < 0:
             l.append(start)
             start += step
-        elif start < stop and step < 0:
+        elif start < stop and step < 0 or start == stop:
             yield l
             break
         else:
