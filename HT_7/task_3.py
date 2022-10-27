@@ -12,8 +12,15 @@
     P.P.P.S Не забудьте обробляти невалідні ситуації (типу range(1, -10, 5) тощо). Подивіться як веде себе стандартний range в таких випадках.'''
 
 
-def my_range(start, stop, step= 1):
+def my_range(stop, start= 0, step= 1):
     l = []
+   
+    if start == 0:
+        stop, start = start, stop
+        start, stop = stop, start
+    else:
+        stop, start = start, stop
+
     while True:
         if start < stop and step > 0:
             l.append(start)
@@ -21,9 +28,6 @@ def my_range(start, stop, step= 1):
         elif abs(start) < stop and step < 0:
             l.append(start)
             start += step
-        elif start < stop and step < 0 or start == stop:
-            yield l
-            break
         else:
             break
     for i in l:
@@ -31,7 +35,7 @@ def my_range(start, stop, step= 1):
       
     
 try:
-    for i in my_range(1, 10, 2):
+    for i in my_range(5):
         print(i)
 except (ValueError, NameError, TypeError) as error:
     print(f'Error: {error}')
