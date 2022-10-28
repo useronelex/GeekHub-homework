@@ -12,6 +12,10 @@
     P.P.P.S Не забудьте обробляти невалідні ситуації (типу range(1, -10, 5) тощо). Подивіться як веде себе стандартний range в таких випадках.'''
 
 
+class MyRangeValueError(Exception):
+    pass
+
+
 def my_range(stop, start= 0, step= 1):
     l = []
    
@@ -22,23 +26,21 @@ def my_range(stop, start= 0, step= 1):
         stop, start = start, stop
 
     while True:
-        if start < stop and step > 0:
-            l.append(start)
-            start += step
-        elif abs(start) < stop and step < 0:
-            l.append(start)
-            start += step
-        else:
+        if (stop > start and step < 0 or
+            stop < start and step > 0 or
+            start == stop):
             break
+        elif step == 0:
+            raise MyRangeValueError('my_range() arg 3 must not be zero')
+        else:
+            l.append(start)
+            start += step
     for i in l:
         yield i
-      
     
+
 try:
     for i in my_range(5):
         print(i)
-except (ValueError, NameError, TypeError) as error:
+except (ValueError, NameError, TypeError, MyRangeValueError) as error:
     print(f'Error: {error}')
-
-
-
