@@ -1,0 +1,15 @@
+[
+    {
+        "active": "deposit",
+        "balance": "280"
+    },
+    {
+        "active": "deposit",
+        "balance": "300"
+    },
+    {
+        "active": "deposit",
+        "balance": 412,
+        "amount": 100
+    }
+]
