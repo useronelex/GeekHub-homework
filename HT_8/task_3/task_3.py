@@ -76,24 +76,24 @@ def start():
     if user_check(login, password):
         print(f"Вітаємо, Ви ввійшли до системи!\n======================")
 
-    flag = True
-    while flag:
-        # Start menu
-        menu = 'Select an operation: \n' \
-               '1. Перевірити рахунок\n' \
-               '2. Покласти кошти\n' \
-               '0. Вихід'
+        flag = True
+        while flag:
+            # Start menu
+            menu = 'Select an operation: \n' \
+                   '1. Перевірити рахунок\n' \
+                   '2. Покласти кошти\n' \
+                   '0. Вихід'
 
-        if user_check(login, password):
-            print(menu)
-            choice = int(input('-> ').strip())
-            if choice == 1:
-                check_balance(login)
-            elif choice == 2:
-                put_money(login)
-            elif choice == 0:
-                print('Bye!')
-                flag = False
+            if user_check(login, password):
+                print(menu)
+                choice = int(input('-> ').strip())
+                if choice == 1:
+                    check_balance(login)
+                elif choice == 2:
+                    put_money(login)
+                elif choice == 0:
+                    print('Bye!')
+                    flag = False
 
 
 if __name__ == '__main__':
