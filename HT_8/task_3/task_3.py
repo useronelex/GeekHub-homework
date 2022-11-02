@@ -2,22 +2,6 @@ import csv
 import json
 
 
-def create_user():
-    print('Потрібна реєстрація!\n================')
-    with open('users/users.csv', 'w', encoding='utf-8', newline='') as file:
-        first_name = input('Ваше ім\'я: ')
-        last_name = input('Ваше прізвище: ')
-        login = input('Login: ')
-        password = input('Password: ')
-
-        fieldnames = ['first_name', 'last_name', 'login', 'password']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-
-        writer.writeheader()
-        writer.writerow({'first_name': first_name, 'last_name': last_name, 'login': login, 'password': password})
-    return start()
-
-
 def user_check(user_login, password):
     """ The function checks for the correctness of user data input """
     try:
@@ -38,7 +22,7 @@ def user_check(user_login, password):
                     print(f'Невірно введені дані, спробуйте ще\nКількість спроб - {count}')
             raise Exception('Перевищено кількість спроб!')
     except FileNotFoundError:
-        create_user()
+        raise Exception('Створіть файл users.csv')
 
 
 def check_balance(user_login):
