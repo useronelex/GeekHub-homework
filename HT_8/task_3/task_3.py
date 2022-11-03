@@ -34,17 +34,7 @@ def user_check(user_login, password):
             for row in users_data:
                 if row['login'] == user_login and row['password'] == password:
                     return True
-            print('Дані не знайдено')
-            for attempt in range(3):
-                if row['login'] == user_login and row['password'] == password:
-                    return True
-                else:
-                    login = input('Введіть логін: ').strip()
-                    password = input('Введіть пароль: ').strip()
-                    count = 2
-                    count -= attempt
-                    print(f'Невірно введені дані, спробуйте ще\nКількість спроб - {count}')
-            raise Exception('Перевищено кількість спроб!')
+                            
     except FileNotFoundError:
         raise Exception('Створіть файл users.csv')
 
@@ -98,11 +88,14 @@ def start():
     print('======================')
 
     if user_check(login, password):
-        print(f"Вітаємо, Ви ввійшли до системи!\n======================")
+        print(f"Вітаємо, Ви ввійшли до системи!")
+    else:
+        print('Не вірно введені дані!\nСпробуйте ще раз!')
 
     flag = True
     while flag:
         # Start menu
+        print('======================')
         menu = 'Select an operation: \n' \
                '1. Перевірити рахунок\n' \
                '2. Покласти кошти\n' \
@@ -118,7 +111,24 @@ def start():
             elif choice == 0:
                 print('Bye!')
                 flag = False
+        else:
+            attempt = 3
+            count = 0
+            while count < attempt:
+                login = input('Введіть логін: ').strip()
+                password = input('Введіть пароль: ').strip()    
+                if user_check(login, password):
+                    break
+                count += 1
+                count_user = attempt - count
+                print('======================')
+                print(f'Не вірно введені дані!\nСпробуйте ще раз! Кількість спроб: {count_user}')
+                print('======================')
+                
+            else:
+                print('Ви перевищили кількість спроб!\nBye!')
+                flag = False
 
-
+        
 if __name__ == '__main__':
     start()
