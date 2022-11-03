@@ -22,21 +22,21 @@
 import time
 
 
-def light_trafic():
-    colors_for_car = ['Red', 'Yellow', 'Green']
-    colors_for_human = ['Red', 'Green']
+def light_trafic(colors_car, colors_human):
+    for cl_car in colors_car:
+        for cl_hm in colors_human:
+            for i in range(4):
+                if  cl_car != cl_hm and cl_car != 'Yellow':
+                    print(f'{cl_car}   {cl_hm}')
+                    time.sleep(1)
+            if cl_car == 'Yellow':
+                print('Yellow   Red')
+                time.sleep(1)
     
-    for color in colors_for_car:
-        for i in range(3):
-            for cl_car in colors_for_car:
-                for cl_human in colors_for_human:
-                    if color == cl_car and cl_car != cl_human and cl_car != 'Yellow':
-                        print(f'{cl_car}        {cl_human}')
-                        time.sleep(1)
-                    elif color == cl_car and cl_car == 'Yellow':
-                        print(f'{cl_car}        Red')
-                        time.sleep(1)
-
+    
 
 if __name__ == '__main__':
-    light_trafic()
+    colors_car = ['Red', 'Yellow', 'Green']
+    colors_human = ['Red', 'Green']
+    
+    light_trafic(colors_car, colors_human)
