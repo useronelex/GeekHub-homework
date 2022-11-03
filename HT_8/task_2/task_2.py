@@ -18,10 +18,10 @@ def file_processing(name, size):
                     file.seek(0)
                     f_1 = file.read(size)
                     # center position
-                    file.seek(file.seek(0) + round((len(file.read()) / 2)))
+                    file.seek(round((len(file.read()) / 2)))
                     f_2 = file.read(size)
                     # end position
-                    file.seek(file.seek(0) + len(file.read()) - size + 1)
+                    file.seek(file.seek(0) + len(file.read()) - size)
                     f_3 = file.read(size)
                     print(f'{f_1},  {f_2},  {f_3}')
                 else:
