@@ -34,6 +34,7 @@ def file_processing(name, size):
 
 if __name__ == '__main__':
     try:
-        file_processing('test.txt', 8)
+        n = abs(int(input('Value symbols: ')))
+        file_processing('test.txt', n)
     except (ValueError, NameError, TypeError) as error:
         print(f'incorrectly entered data: {error}')
